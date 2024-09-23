@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 
 function FoodOrderForm() {
-  
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [order, setOrder] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Order Successful!\n\nYour order was ${order}.\n\nPlease show your confirmation number for pickup.`);
   };
-  
 
-  const [statName, setStatName] = useState('');
-  const [statPhone, setStatPhone]  = useState('')
-  const [stataddress, setStatAddress]  = useState('')
-  const [statOrder, setStatOrder]  = useState('')
-    
   return (
-    <fourm>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name:</label>
-      <input id='name' value={statName} onChange={(e) => setName(e.target.value)} name="name"></input>
-      <label htmlFor="phone">name</label>
-      <input id='phone' value={statPhone} onChange={(e) => setStatPhone(e.target.value)} name="phone"></input>
-      <label htmlFor="address">address</label>
-      <input id='address' value={stataddress} onChange={(e) => setStatAddress(e.target.value)} name="address"></input>
-      <label htmlFor="order">order</label>
-      <input id='order' value={statOrder} onChange={(e) => setStatOrder(e.target.value)} name="order"></input>
-      <button type="submit" onSubmit={handleSubmit}>Submit Order</button>
-    </fourm>
-  )
+      <input id="name" value={name} onChange={(e) => setName(e.target.value)} name="name" type="text" />
+      
+      <label htmlFor="phone">Phone:</label>
+      <input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} name="phone" type="text" />
+      
+      <label htmlFor="address">Address:</label>
+      <input id="address" value={address} onChange={(e) => setAddress(e.target.value)} name="address" type="text" />
+      
+      <label htmlFor="order">Order:</label>
+      <input id="order" value={order} onChange={(e) => setOrder(e.target.value)} name="order" type="text" />
+      
+      <button type="submit">Submit Order</button>
+    </form>
+  );
 }
 
 export default FoodOrderForm;
-
